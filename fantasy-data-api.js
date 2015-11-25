@@ -19,10 +19,10 @@ FanData.prototype.call = function(league_type, version, method, params, callback
             if(err) {
                 future.throw(err);
             } else if(!message.data.ok){
-                future.return(message.data);
+                future.return(message);
             } else {
                 // Send back the relevant part of the payload.
-                future.return(message.data);
+                future.return(message);
             }
         });
         return future.wait();
@@ -36,10 +36,10 @@ FanData.prototype.call = function(league_type, version, method, params, callback
             if(err) {
                 return callback(err);
             } else if(!message.data.ok){
-                return callback(message.data);
+                return callback(message);
             } else {
                 // Send back the relevant part of the payload.
-                return callback(null, message.data);
+                return callback(null, message);
             }
         });
     }
